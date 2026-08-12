@@ -138,6 +138,6 @@ while keep_playing:
   random_generated_number = random.sample(range(0, len(data)),2)
   user_input = input(f"who has more followers \nenter a  for {data[random_generated_number[0]]["name"]}. enter b for {data[random_generated_number[1]]["name"]} " )
   if not compare(user_input):
-    keep_playing = False
+    keep_playing = False 
 
 
