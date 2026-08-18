@@ -119,17 +119,22 @@ keep_playing = True
 # function that handles comparisons
 def compare(user_input):  
    
-   if user_input == "a" and  data[random_generated_number[0]]["follower_count"] > data[random_generated_number[1]]["follower_count"]:
+   if user_input.lower() == "a" and  data[random_generated_number[0]]["follower_count"] > data[random_generated_number[1]]["follower_count"]:
     print("you win \n")
     return True
    
-   elif user_input == "b" and data[random_generated_number[1]]["follower_count"] > data[random_generated_number[0]]["follower_count"]:
+   elif user_input.lower() == "b" and data[random_generated_number[1]]["follower_count"] > data[random_generated_number[0]]["follower_count"]:
      print("you win \n")
-     return True  
+     return True 
+
+   elif user_input.lower() not in ['a', 'b']:
+        print("Error: That is not 'a' or 'b'. Try again.\n") 
+        return True 
    
    else:
-     print("you loose")
      return False
+
+  
     
 
 
@@ -138,6 +143,7 @@ while keep_playing:
   random_generated_number = random.sample(range(0, len(data)),2)
   user_input = input(f"who has more followers \nenter a  for {data[random_generated_number[0]]["name"]}. enter b for {data[random_generated_number[1]]["name"]} " )
   if not compare(user_input):
+    print("you loose")
     keep_playing = False 
 
 
